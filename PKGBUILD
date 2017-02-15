@@ -2,7 +2,7 @@
 
 pkgname=neomutt
 pkgver=20170206
-pkgrel=1
+pkgrel=2
 pkgdesc='The New Mutt: powerful text-based mail client with all the best feature patches'
 url='http://www.neomutt.org/'
 license=('GPL')
@@ -25,21 +25,12 @@ build() {
     --prefix=/usr \
     --sysconfdir=/etc \
     --enable-debug \
-    --enable-pgp \
-    --enable-gpgme \
-    --enable-notmuch \
-    --enable-pop \
-    --enable-imap \
-    --enable-smtp \
-    --enable-sidebar \
-    --enable-compressed \
+    --enable-everything \
+    --with-curses=/usr \
     --with-gss=/usr \
     --with-ssl=/usr \
     --with-sasl \
-    --with-curses=/usr \
-    --with-regex \
-    --with-idn \
-    --with-gdbm
+    --without-qdbm --without-lmdb --without-bdb --without-kyotocabinet --without-tokyocabinet
 
   # Build it!
   make
