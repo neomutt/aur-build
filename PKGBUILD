@@ -11,7 +11,7 @@ md5sums=('0db4216b85589fa0222e92690874419c')
 arch=('i686' 'x86_64')
 depends=('openssl' 'gdbm' 'mime-types' 'libsasl' 'gnupg' 'gpgme' 'libidn' 'krb5' 'notmuch-runtime')
 optdepends=('urlview: for url menu')
-makedepends=('git' 'gnupg' 'libxslt')
+makedepends=('automake' 'autoconf' 'git' 'gnupg' 'libxslt')
 conflicts=('mutt')
 provides=('mutt')
 
