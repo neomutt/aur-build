@@ -1,0 +1,8 @@
+sudo: required
+
+services:
+  - docker
+
+script:
+  - docker pull base/archlinux
+  - docker run -v $TRAVIS_BUILD_DIR:/pkg base/archlinux /bin/sh /pkg/travis.sh
