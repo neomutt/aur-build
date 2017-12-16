@@ -4,4 +4,4 @@ services:
   - docker
 
 script:
-  - docker run -v $(pwd):/pkg hobarrera/makepkg
+  - docker run -v $(pwd):/pkg neomutt/aur
