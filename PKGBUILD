@@ -2,12 +2,12 @@
 
 _pkgname=neomutt
 pkgname=neomutt-git
-pkgver=neomutt.20171215.r0.gae612851
+pkgver=latest
 pkgrel=1
 pkgdesc='The New Mutt: powerful text-based mail client with all the best feature patches'
 url='http://www.neomutt.org/'
 license=('GPL')
-source=('git+https://github.com/neomutt/neomutt.git#branch=master')
+source=('git+https://github.com/neomutt/neomutt.git')
 sha256sums=('SKIP')
 arch=('i686' 'x86_64')
 depends=('openssl' 'gdbm' 'mailcap' 'libsasl' 'gnupg' 'gpgme' 'libidn' 'krb5' 'notmuch-runtime' 'docbook-xsl')
@@ -23,7 +23,7 @@ pkgver() {
   git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
-build() {
+prepare() {
   cd "${srcdir}/${_pkgname}"
 
   ./configure \
@@ -34,6 +34,10 @@ build() {
     --sasl \
     --with-ui=ncurses \
     --gdbm
+}
+
+build() {
+  cd "${srcdir}/${_pkgname}"
 
   # Build it!
   make
